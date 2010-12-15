@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich">
+<head></head>
+<body>
+
+
+<rich:panelMenu width="120px">
+<rich:panelMenuGroup label="Customer">
+	<rich:panelMenuItem >
+			 <h:outputLink value="customerEdit.jsf" >Create</h:outputLink>
+	</rich:panelMenuItem>
+	<rich:panelMenuItem >
+			 <h:outputLink value="customerList.jsf" >List</h:outputLink>
+	</rich:panelMenuItem> 
+</rich:panelMenuGroup>
+<rich:panelMenuGroup label="Order">
+	<rich:panelMenuItem >
+			 <h:outputLink value="welcome.jsf" >Create</h:outputLink>
+	</rich:panelMenuItem>
+	<rich:panelMenuItem >
+			 <h:outputLink value="welcome.jsf" >List</h:outputLink>
+	</rich:panelMenuItem> 
+</rich:panelMenuGroup>
+</rich:panelMenu>
+
+</body>
+</html>
