@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <User  id="1"  login="login"    passWord="passWord" />
+    <User  id="2"  login="hi"       passWord="hi" />
+    <User  id="3"  login="user"     passWord="user" />
+    <User  id="4"  login="egide"    passWord="egide" />
+
+    <Dossier    id="1"
+                libelleDossier="dossier 1"
+                typeDossier="type dossier"
+                pays="France"
+                ville="Paris" />
+</dataset>
