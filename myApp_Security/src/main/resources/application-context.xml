@@ -69,6 +69,8 @@
             <list>
                 <value>com.mycompany.entity.Customer</value>
                 <value>com.mycompany.entity.CustomerOrder</value>
+                <value>com.mycompany.entity.User</value>
+                <value>com.mycompany.entity.Authority</value> 
             </list>
         </property>
     </bean>
@@ -79,6 +81,12 @@
     
     <bean id="customerOrderDao" class="com.mycompany.dao.hibernate.CustomerOrderDao" >
         <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id="dataUtil" class="com.mycompany.util.DataUtil">
+    	<property name="dataSetResource" value="classpath:FlatXmlDataSet.xml"/>
+    	<property name="sessionFactory" ref="sessionFactory"/>
+    	<property name="populate" value="true" />  	
     </bean>
 
 </beans>
