@@ -7,6 +7,8 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.mycompany.entity.CustomerOrder</class>
         <class>com.mycompany.entity.Customer</class>
+        <class>com.mycompany.entity.User</class>
+        <class>com.mycompany.entity.Authority</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
         </properties>
