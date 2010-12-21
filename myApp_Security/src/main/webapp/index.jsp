@@ -4,7 +4,7 @@
 <title>RichFaces Greeter</title>
 </head>
 <body>
-<a href="pages/welcome.jsf" >Basic JSF</a> 
+<a href="./pages/static/welcome.jsf" >Basic JSF</a> 
 
 
 
