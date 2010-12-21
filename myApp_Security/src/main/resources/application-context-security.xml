@@ -8,7 +8,7 @@
 
 	<http use-expressions="true" >
 		<intercept-url pattern="/login.jsp" filters="none"/>
-		<intercept-url pattern="/pages/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/pages/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_CUSTOMER', 'ROLE_ORDER')" />
 		<intercept-url pattern="/pages/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<form-login login-page="/login.jsp" default-target-url="/pages/welcome.jsf" authentication-failure-url="/login.jsp?fail=true"/>
 		<logout />
