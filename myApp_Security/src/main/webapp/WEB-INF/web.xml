@@ -17,7 +17,7 @@
 		<param-name>org.richfaces.SKIN</param-name>
 		<param-value>blueSky</param-value>
 	</context-param>
-	
+
 	<context-param>
 		<param-name>org.ajax4jsf.VIEW_HANDLERS</param-name>
 		<param-value>com.sun.facelets.FaceletViewHandler</param-value>
@@ -27,12 +27,31 @@
 		<param-name>org.richfaces.LoadScriptStrategy</param-name>
 		<param-value>ALL</param-value>
 	</context-param>
-	
+
 	<context-param>
-	    <param-name>org.richfaces.LoadStyleStrategy</param-name>
-	    <param-value>ALL</param-value>
+		<param-name>org.richfaces.LoadStyleStrategy</param-name>
+		<param-value>ALL</param-value>
 	</context-param>
-	
+
+<!-- 	<context-param>
+		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+		<param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
+	</context-param>
+ -->
+
+	<context-param>
+		<param-name>facelets.LIBRARIES</param-name>
+		<param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
+	</context-param>
+
+	<!-- Enables special Facelets debug output during development -->
+<!--	<context-param>
+		<param-name>facelets.DEVELOPMENT</param-name>
+		<param-value>true</param-value>
+	</context-param> -->
+
+
+
 	<filter>
 		<display-name>RichFaces Filter</display-name>
 		<filter-name>richfaces</filter-name>
@@ -56,19 +75,21 @@
 		<listener-class>
 			org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
-	
+
 	<!-- spring security -->
-    <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
-    <!-- end spring security -->
-	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+	<!-- end spring security -->
+
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

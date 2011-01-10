@@ -18,6 +18,14 @@
 <f:view >
  
 	<a4j:form>
+		<div style="width:350px;" >
+		
+		<a4j:outputPanel layout="block" id="msgAction" style="color:green" >
+			<h:outputText value="#{customer.msg.msgValue}" rendered="true"/>
+		</a4j:outputPanel>
+
+		
+		
 		<rich:panel>
         <f:facet name="header">
         	<h:outputText value="Edit Customer"/>
@@ -56,10 +64,11 @@
 			<rich:message for="zip" />
 			
 			<f:facet name="footer"> 
-				<a4j:commandButton action="#{customer.save}"  value="save"/>
+				<a4j:commandButton action="#{customer.save}"  value="save" reRender="msg,msgAction"/>
 			</f:facet>
 			</h:panelGrid>
     	</rich:panel>
+    	</div>
     	
 			
 				

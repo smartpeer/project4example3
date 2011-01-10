@@ -5,7 +5,10 @@
 
 package com.mycompany.entity;
 
+import java.util.List;
+
 import javax.persistence.*;
+
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -18,19 +21,22 @@ public class User  {
 
     
     
-public User(Long userId, String name, String login, String password,
-			boolean enabled) {
-		super();
-		this.userId = userId;
-		this.name = name;
-		this.login = login;
-		this.password = password;
-		this.enabled = enabled;
-	}
+
+    public User(Long userId, String name, String login, String password,
+		boolean enabled, List<Authority> authorities) {
+	super();
+	this.userId = userId;
+	this.name = name;
+	this.login = login;
+	this.password = password;
+	this.enabled = enabled;
+	this.authorities = authorities;
+}
 
 
 
-    @Id
+
+	@Id
     @GenericGenerator(name = "generator", strategy = "increment")
     @GeneratedValue(generator = "generator")
     @Column(name = "user_id", nullable = false)
@@ -47,6 +53,9 @@ public User(Long userId, String name, String login, String password,
 
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
+    
+    @OneToMany
+    private List<Authority> authorities;
 
 	public Long getUserId() {
 		return userId;
@@ -87,5 +96,19 @@ public User(Long userId, String name, String login, String password,
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+
+
+	public List<Authority> getAuthorities() {
+		return authorities;
+	}
+
+
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
+	
+	
    
 }
