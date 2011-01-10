@@ -6,6 +6,8 @@ import java.util.List;
 import com.mycompany.dao.ICustomerDao;
 import com.mycompany.entity.Customer;
 import com.mycompany.entity.CustomerOrder;
+import com.mycompany.util.Message;
+import com.mycompany.util.MessageType;
 
 /**
  * @author abdelkafi_s
@@ -43,12 +45,14 @@ public class CustomerController {
 	    
 	    private List<Customer> customers;
 	    
+	    private Message msg = new Message();
+	    
 	    
 	    
 	    public void save(){
 	    	Customer customer= new Customer(Integer.parseInt(taxId), name, adresse, city, state, zip, phone, null);
 	    	customerDao.save(customer);
-	    	
+	    	this.msg = new Message(true, "saved successful", MessageType.SUCCESS);   	
 	    }
 
 
@@ -165,5 +169,22 @@ public class CustomerController {
 			this.customers = customers;
 		}
 
+
+
+		public Message getMsg() {
+			return msg;
+		}
+
+
+
+		public void setMsg(Message msg) {
+			this.msg = msg;
+		}
+
+		
+
+	
+
+		
 		
 }

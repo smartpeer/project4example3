@@ -3,11 +3,12 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:rich="http://richfaces.org/rich">
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:sec="http://www.springframework.org/security/tags">
 <head></head>
 <body>
 
-
+	
 <rich:panelMenu width="120px">
 <rich:panelMenuGroup label="Customer">
 	<rich:panelMenuItem >
@@ -25,12 +26,19 @@
 			 <h:outputLink value="../order/orderList.jsf" >List</h:outputLink>
 	</rich:panelMenuItem> 
 </rich:panelMenuGroup>
-<rich:panelMenuGroup label="Admin">
-	<rich:panelMenuItem >
-			 <h:outputLink value="../admin/admin.jsf" >Users</h:outputLink>
-	</rich:panelMenuItem> 
-</rich:panelMenuGroup>
+<sec:authorize access="hasAnyRole('ROLE_TITO')" >
+	<rich:panelMenuGroup label="Admin">
+		<rich:panelMenuItem >
+				 <h:outputLink value="../admin/admin.jsf" >Users</h:outputLink>
+		</rich:panelMenuItem> 
+	</rich:panelMenuGroup>
+</sec:authorize>
 </rich:panelMenu>
+<!-- 
+	<sec:authorize ifAllGranted="ROLE_FOO, ROLE_BAR">
+		Lorem ipsum dolor sit amet
+	</sec:authorize>
 
+ -->
 </body>
 </html>
