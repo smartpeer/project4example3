@@ -10,6 +10,7 @@ import com.mycompany.entity.CustomerOrder;
 import java.util.Collection;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 
 /**
@@ -25,6 +26,7 @@ public class CustomerOrderDao  extends HibernateDaoSupport implements ICustomerO
     public CustomerOrder getById(Long id) {
          return (CustomerOrder) getHibernateTemplate().load(CustomerOrder.class, id);
     }
+
 
     public void save(CustomerOrder customerOrder) {
         getHibernateTemplate().save(customerOrder);
