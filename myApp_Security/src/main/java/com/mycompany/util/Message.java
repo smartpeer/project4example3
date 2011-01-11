@@ -15,9 +15,9 @@ public class Message {
 		msgType = MessageType.IDLE;
 		
 	}
-	public Message(boolean mesgRendrer, String msgValue, MessageType msgType) {
+	public Message(boolean msgRendrer, String msgValue, MessageType msgType) {
 		super();
-		this.msgRendrer = mesgRendrer;
+		this.msgRendrer = msgRendrer;
 		this.msgValue = msgValue;
 		this.msgType = msgType;
 	}
