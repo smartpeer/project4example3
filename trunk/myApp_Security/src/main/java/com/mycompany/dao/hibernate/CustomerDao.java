@@ -10,6 +10,9 @@ import com.mycompany.entity.Customer;
 import java.util.Collection;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.security.access.prepost.PreAuthorize;
+
+
 
 
 /**
@@ -26,6 +29,7 @@ public class CustomerDao extends HibernateDaoSupport implements ICustomerDao{
          return (Customer) getHibernateTemplate().load(Customer.class, id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void save(Customer customer) {
         getHibernateTemplate().save(customer);
     }
