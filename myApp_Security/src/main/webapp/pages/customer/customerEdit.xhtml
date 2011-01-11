@@ -20,8 +20,8 @@
 	<a4j:form>
 		<div style="width:350px;" >
 		
-		<a4j:outputPanel layout="block" id="msgAction" style="color:green" >
-			<h:outputText value="#{customer.msg.msgValue}" rendered="true"/>
+		<a4j:outputPanel layout="block" id="msgAction" styleClass="#{customer.msg.msgType}" >
+			<h:outputText value="#{customer.msg.msgValue}" rendered="#{customer.msg.msgRendrer}"/>
 		</a4j:outputPanel>
 
 		
