@@ -7,8 +7,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "authority")
 public class Authority  {
+	
+	public Authority(Long authorityId, String name, User user) {
+		super();
+		this.authorityId = authorityId;
+		this.name = name;
+		this.user = user;
+	}
 
-    public Authority() {
+	public Authority() {
         super();
     }
 

@@ -14,6 +14,13 @@
 		</managed-property>
 	</managed-bean>
 	
+	<managed-bean>
+		<description>user</description>
+		<managed-bean-name>user</managed-bean-name>
+		<managed-bean-class>com.mycompany.bean.UserController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
 	<application>
 		<locale-config>
             <default-locale>en</default-locale>

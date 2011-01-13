@@ -5,6 +5,7 @@
 
 package com.mycompany.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -55,7 +56,7 @@ public class User  {
     private boolean enabled;
     
     @OneToMany
-    private List<Authority> authorities;
+    private List<Authority> authorities = new ArrayList<Authority>();
 
 	public Long getUserId() {
 		return userId;
@@ -109,6 +110,18 @@ public class User  {
 		this.authorities = authorities;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(name);
+		sb.append("[");
+		for (Authority a : authorities){
+			sb.append(a.getName());
+			sb.append(" ,");
+		}
+		sb.append("]");
+		return sb.toString().replace(" ,]", "]");
+	}
 	
    
 }

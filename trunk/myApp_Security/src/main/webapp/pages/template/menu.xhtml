@@ -26,7 +26,7 @@
 			 <h:outputLink value="../order/orderList.jsf" >List</h:outputLink>
 	</rich:panelMenuItem> 
 </rich:panelMenuGroup>
-<sec:authorize access="hasAnyRole('ROLE_TITO')" >
+<sec:authorize access="hasAnyRole('ROLE_ADMIN')" >
 	<rich:panelMenuGroup label="Admin">
 		<rich:panelMenuItem >
 				 <h:outputLink value="../admin/admin.jsf" >Users</h:outputLink>
@@ -34,11 +34,6 @@
 	</rich:panelMenuGroup>
 </sec:authorize>
 </rich:panelMenu>
-<!-- 
-	<sec:authorize ifAllGranted="ROLE_FOO, ROLE_BAR">
-		Lorem ipsum dolor sit amet
-	</sec:authorize>
 
- -->
 </body>
 </html>

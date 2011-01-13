@@ -9,13 +9,13 @@
 	<global-method-security pre-post-annotations="enabled"/>
 
 	<http use-expressions="true" access-denied-page="/pages/static/accessDenied.jsf">
-		<intercept-url pattern="/login.jsp" filters="none" />
+		<intercept-url pattern="/login.jsf" filters="none" />
 		
 		<intercept-url pattern="/pages/static/**"
 			access="isAuthenticated()" />
 			
 		<intercept-url pattern="/pages/customer/**"
-			access="hasAnyRole('ROLE_ADMIN', 'ROLE_CUSTOMER')" />
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_CUSTOMER', 'ROLE_ORDER')" />
 			
 		<intercept-url pattern="/pages/order/**"
 			access="hasAnyRole('ROLE_ADMIN', 'ROLE_ORDER')" />
@@ -23,10 +23,10 @@
 		<intercept-url pattern="/pages/admin/**" 
 			access="hasRole('ROLE_ADMIN')" />
 			
-		<form-login login-page="/login.jsp" 
+		<form-login login-page="/login.jsf" 
 			default-target-url="/pages/static/welcome.jsf"
-			authentication-failure-url="/login.jsp?state=failure" />
-		<logout logout-success-url="/login.jsp?state=logout" />
+			authentication-failure-url="/login.jsf?state=failure" />
+		<logout logout-success-url="/login.jsf?state=logout" />
 	</http>
 
 

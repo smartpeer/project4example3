@@ -2,7 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jstl/core"
+	>
 
 <head></head>
 <body>
@@ -11,6 +14,9 @@
 	<tr>
 		<td>
 		<h2>Customers Management Application</h2>
+		</td>
+		<td align="right" valign="bottom">
+			#{user.currentUser}
 		</td>
 		<td align="right" valign="bottom"><h:outputLink
 			value="#{request.contextPath}/j_spring_security_logout">Logout</h:outputLink>

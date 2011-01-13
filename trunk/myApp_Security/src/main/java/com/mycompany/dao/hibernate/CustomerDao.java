@@ -29,7 +29,7 @@ public class CustomerDao extends HibernateDaoSupport implements ICustomerDao{
          return (Customer) getHibernateTemplate().load(Customer.class, id);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_CUSTOMER')")
     public void save(Customer customer) {
         getHibernateTemplate().save(customer);
     }
