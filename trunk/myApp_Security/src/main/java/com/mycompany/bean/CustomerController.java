@@ -53,9 +53,9 @@ public class CustomerController {
 	    	Customer customer= new Customer(Integer.parseInt(taxId), name, adresse, city, state, zip, phone, null);
 	    	try {
 				customerDao.save(customer);
-				this.msg = new Message(true, "saved successful", MessageType.SUCCESS);   
+				this.msg = new Message(true, "Saved successfully", MessageType.SUCCESS);   
 			} catch (Exception e) {
-				this.msg = new Message(true, "saved fail", MessageType.ERROR);
+				this.msg = new Message(true, "Error:" + e.getMessage(), MessageType.ERROR);
 			}
 				
 	    }
