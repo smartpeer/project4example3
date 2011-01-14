@@ -1,10 +1,13 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>
-<title>RichFaces Greeter</title>
+<title>index</title>
 </head>
 <body>
-<a href="./pages/static/welcome.jsf" >Basic JSF</a> 
+<%
+    String redirectURL = request.getContextPath() + "/login.jsf";
+    response.sendRedirect(redirectURL);
+%>
 
 
 
