@@ -5,16 +5,9 @@
 >
 <head></head>
 <body>
-<h1>Login Required</h1>
+
 
 <div class="section">
-	<c:if test="${param.state=='failure'}">
-		<div class="errors">
-			Your login attempt was not successful, try again.<br />
-			Reason: #{sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
-		</div>
-	</c:if>
-	<br/>
 	<p>Valid username/passwords are:</p>
 	<ul>
 		<li>admin/admin</li>
@@ -22,36 +15,29 @@
 	</ul>
 </div>
 
-<div class="section">
-	<form  action="#{request.contextPath}/j_spring_security_check" method="post">
-		<fieldset>
-			<div class="field">
-				<div class="label">User:</div>
-				<div class="output">
-					<c:if test="${param.state=='failure'}">
-						<c:set var="username" value="#{sessionScope.SPRING_SECURITY_LAST_USERNAME}"/>
-					</c:if>
-					<input type="text" name="j_username" value="#{username}"/>
-				</div>
-			</div>
-			<div class="field">
-				<div class="label">Password:</div>
-				<div class="output">
-					<input type="password" name="j_password" />
-				</div>
-			</div>
-			<div class="field">
-				<div class="label">Don't ask for my password for two weeks:</div>
-				<div class="output">
-					<input type="checkbox" name="_spring_security_remember_me"/> 
-				</div>
-			</div>
-		</fieldset>
-		<div class="buttonGroup">
-			<input name="submit" type="submit" value="Login" />
+<c:if test="${param.state=='failure'}">
+		<c:set var="username" value="#{sessionScope.SPRING_SECURITY_LAST_USERNAME}"/>
+		<div class="ERROR">
+			Your login attempt was not successful, try again.<br />
+			Reason: #{sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
 		</div>
-	</form>
-</div>
+</c:if>
+
+	<h:form  action="#{request.contextPath}/j_spring_security_check" method="post">
+		<h:panelGrid columns="2" title="Customer">
+			<f:facet name="header"> 
+				<h:outputText value="Login form" />
+			</f:facet>
+			<h:outputText value="User:" />
+			<h:inputText id="j_username" value="#{username}"  />
+			<h:outputText value="Password:" />
+			<h:inputSecret id="j_password" />
+			<f:facet name="footer"> 
+				<h:commandButton  value="Login" type="submit"  />
+			</f:facet>
+		</h:panelGrid>
+	</h:form>
+
 </body>
 
 </html>
