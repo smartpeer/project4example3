@@ -1,4 +1,8 @@
-<html xmlns:jsp="http://java.sun.com/JSP/Page"
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:jsp="http://java.sun.com/JSP/Page"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:c="http://java.sun.com/jstl/core" 
@@ -15,6 +19,7 @@
 	</ul>
 </div>
 
+
 <c:if test="${param.state=='failure'}">
 		<c:set var="username" value="#{sessionScope.SPRING_SECURITY_LAST_USERNAME}"/>
 		<div class="ERROR">
@@ -23,7 +28,7 @@
 		</div>
 </c:if>
 
-	<h:form  action="#{request.contextPath}/j_spring_security_check" method="post">
+	<form  action="#{request.contextPath}/j_spring_security_check" method="post">
 		<h:panelGrid columns="2" title="Customer">
 			<f:facet name="header"> 
 				<h:outputText value="Login form" />
@@ -36,7 +41,7 @@
 				<h:commandButton  value="Login" type="submit"  />
 			</f:facet>
 		</h:panelGrid>
-	</h:form>
+	</form>
 
 </body>
 
