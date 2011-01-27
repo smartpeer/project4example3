@@ -216,7 +216,7 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<configuration>
 					<warFile>target\myApp_Security.war</warFile>
-					<url>http://localhost:9090/manager</url>
+					<url>http://localhost:8080/manager</url>
 					<username>tomcat</username>
 					<password>tomcat</password>
 					<argLine>-Xmx512m</argLine>
