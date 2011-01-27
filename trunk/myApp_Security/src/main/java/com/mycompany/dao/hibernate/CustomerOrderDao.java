@@ -10,7 +10,7 @@ import com.mycompany.entity.CustomerOrder;
 import java.util.Collection;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import org.springframework.security.access.prepost.PreAuthorize;
+
 
 
 /**
