@@ -31,22 +31,24 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.richfaces.ui</groupId>
-			<artifactId>richfaces-ui</artifactId>
-			<version>3.3.3.Final</version>
-		</dependency>
+		<!-- RichFaces libraries -->
 
 		<dependency>
 			<groupId>org.richfaces.framework</groupId>
 			<artifactId>richfaces-api</artifactId>
-			<version>3.3.3.Final</version>
+			<version>3.3.4-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.richfaces.framework</groupId>
 			<artifactId>richfaces-impl</artifactId>
-			<version>3.3.3.Final</version>
+			<version>3.3.4-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>richfaces-ui</artifactId>
+			<version>3.3.4-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -58,14 +60,16 @@
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>1.2_08</version>
+			<version>1.2-b19</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>1.2_08</version>
+			<version>1.2-b19</version>
 		</dependency>
+
 
 
 		<dependency>
@@ -183,7 +187,7 @@
 		</dependency>
 
 
-		<!-- begin - jstl dependency-->
+		<!-- begin - jstl dependency -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -195,7 +199,7 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
-		<!-- end - jstl dependency-->
+		<!-- end - jstl dependency -->
 
 
 
