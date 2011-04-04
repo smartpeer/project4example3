@@ -18,7 +18,7 @@
 	    <li>user/user</li>
 	</ul>
 </div>
-
+<c:set var="username" value=""/>
 
 <c:if test="${param.state=='failure'}">
 		<c:set var="username" value="#{sessionScope.SPRING_SECURITY_LAST_USERNAME}"/>
