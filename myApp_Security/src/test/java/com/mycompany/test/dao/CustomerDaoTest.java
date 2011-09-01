@@ -10,10 +10,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.datatype.DefaultDataTypeFactory;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.dbunit.ext.hsqldb.HsqldbDataTypeFactory;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.Before;
 import org.junit.Test;
@@ -82,8 +85,10 @@ public class CustomerDaoTest  {
 	}
 
 	private IDatabaseConnection getConnection() throws Exception {
+		DefaultDataTypeFactory datatypeFactory = new HsqldbDataTypeFactory();
 		Connection jdbcConnection = bds.getConnection();
 		IDatabaseConnection connection = new DatabaseConnection(jdbcConnection);
+		connection.getConfig().setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, datatypeFactory);
 		return connection;
 	}
 }

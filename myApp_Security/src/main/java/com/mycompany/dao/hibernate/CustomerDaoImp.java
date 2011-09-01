@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.mycompany.dao.hibernate;
 
 import java.util.Collection;
@@ -11,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +22,8 @@ import com.mycompany.entity.Customer;
  */
 @Repository("customerDao")
 public class CustomerDaoImp implements CustomerDao{
+	
+	private static final Logger logger = LoggerFactory.getLogger(CustomerDaoImp.class);
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -48,7 +47,9 @@ public class CustomerDaoImp implements CustomerDao{
     @Transactional
     @PreAuthorize("hasRole('ROLE_CUSTOMER')")
     public void save(Customer customer) {
+    	logger.debug("start save customer, name: {}", customer.getName());
         em.persist(customer);
+        logger.debug("customer saved, name: {}, Id: {}", customer.getName(), customer.getCustomerId());
     }
 
     @Transactional
