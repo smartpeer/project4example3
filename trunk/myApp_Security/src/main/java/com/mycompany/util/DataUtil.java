@@ -6,14 +6,15 @@ import java.sql.SQLException;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.dbunit.DatabaseUnitException;
+import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.datatype.DefaultDataTypeFactory;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.dbunit.ext.hsqldb.HsqldbDataTypeFactory;
 import org.dbunit.operation.DatabaseOperation;
-import org.hibernate.SessionFactory;
 import org.springframework.core.io.Resource;
-import org.springframework.orm.hibernate3.SessionFactoryUtils;
 
 public class DataUtil {
 
@@ -36,8 +37,10 @@ public class DataUtil {
 	}	
 
 	private IDatabaseConnection getConnection() throws Exception {
+		DefaultDataTypeFactory datatypeFactory = new HsqldbDataTypeFactory();
 		Connection jdbcConnection = dataSource.getConnection();
 		IDatabaseConnection connection = new DatabaseConnection(jdbcConnection);
+		connection.getConfig().setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, datatypeFactory);
 		return connection;
 	}
 	
