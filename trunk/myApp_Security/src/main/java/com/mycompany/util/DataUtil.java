@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.apache.commons.dbcp.BasicDataSource;
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
@@ -16,7 +17,7 @@ import org.springframework.orm.hibernate3.SessionFactoryUtils;
 
 public class DataUtil {
 
-	private SessionFactory sessionFactory;
+	private BasicDataSource dataSource;
 
 	private Resource dataSetResource;
 
@@ -32,21 +33,22 @@ public class DataUtil {
 		InputStream inputStream = dataSetResource.getInputStream();
 		IDataSet dataset = new FlatXmlDataSet(inputStream);
 		return dataset;
-	}
+	}	
 
 	private IDatabaseConnection getConnection() throws Exception {
-		Connection jdbcConnection = SessionFactoryUtils.getDataSource(
-				sessionFactory).getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		IDatabaseConnection connection = new DatabaseConnection(jdbcConnection);
 		return connection;
 	}
+	
+	
 
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+	public BasicDataSource getDataSource() {
+		return dataSource;
 	}
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public void setDataSource(BasicDataSource dataSource) {
+		this.dataSource = dataSource;
 	}
 
 	public Resource getDataSetResource() {
@@ -60,6 +62,8 @@ public class DataUtil {
 	public boolean isPopulate() {
 		return populate;
 	}
+	
+
 
 	public void setPopulate(boolean populate) {
 
@@ -69,17 +73,16 @@ public class DataUtil {
 				DatabaseOperation.CLEAN_INSERT.execute(getConnection(),
 						getDataSet());
 			} catch (DatabaseUnitException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
 	}
+	
+	
 
 }
