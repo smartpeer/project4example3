@@ -12,14 +12,13 @@ import java.util.Collection;
  *
  * @author abdelkafi_s
  */
-public interface ICustomerOrderDao {
+public interface CustomerOrderDao {
 
-    public Collection<CustomerOrder> getAll();
+    Collection<CustomerOrder> getAll();
 
-    public CustomerOrder getById(Long id);
+    CustomerOrder getById(Long id);
 
-    public void save(CustomerOrder customerOrder);
+    void save(CustomerOrder customerOrder);
 
-    public void delete(CustomerOrder customerOrde);
-
+    void delete(Long id);
 }
