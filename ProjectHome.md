@@ -1,0 +1,1 @@
+This project is a project example using JSF, Hibernate, JPA and Spring Security.
